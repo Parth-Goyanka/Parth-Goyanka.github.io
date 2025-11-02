@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-02T17:48:32+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your Name | Theoretical Research</title><subtitle>Exploring control systems and power systems theory</subtitle><author><name>Parthsarthi</name><email>your.email@university.edu</email></author><entry><title type="html">Understanding Lyapunov Stability: An Intuitive Approach</title><link href="http://localhost:4000/2024/11/01/lyapunov-stability-intuition.html" rel="alternate" type="text/html" title="Understanding Lyapunov Stability: An Intuitive Approach" /><published>2024-11-01T00:00:00+05:30</published><updated>2024-11-01T00:00:00+05:30</updated><id>http://localhost:4000/2024/11/01/lyapunov-stability-intuition</id><content type="html" xml:base="http://localhost:4000/2024/11/01/lyapunov-stability-intuition.html"><![CDATA[<p>Lyapunov stability theory is one of the most elegant and powerful tools in control systems analysis. In this post, I’ll share my understanding of the intuition behind Lyapunov functions and why they’re so fundamental to understanding system stability.</p>
+
+<p>The Lyapunov function $V(x)$ must satisfy $V(x) &gt; 0$ for all $x \neq 0$.</p>
+
+<h2 id="the-energy-perspective">The Energy Perspective</h2>
+
+<p>At its core, a Lyapunov function can be thought of as a generalized energy function. For mechanical systems, this is literal—the total energy serves as a natural Lyapunov function. But the beauty of Lyapunov’s approach is that it extends this energy concept to any dynamical system.</p>
+
+<p>Consider a ball rolling in a bowl. The ball naturally settles at the bottom because that’s where potential energy is minimized. Lyapunov formalized this intuition: if we can find a function that:</p>
+<ol>
+  <li>Is positive everywhere except at the equilibrium (like energy)</li>
+  <li>Always decreases along system trajectories (energy dissipation)</li>
+</ol>
+
+<p>Then the system must be stable.</p>
+
+<h2 id="the-mathematical-formulation">The Mathematical Formulation</h2>
+
+<p>For a system $\dot{x} = f(x)$ with equilibrium at $x = 0$, a Lyapunov function $V(x)$ must satisfy:</p>
+
+<ul>
+  <li>$V(x) &gt; 0$ for all $x \neq 0$ (positive definiteness)</li>
+  <li>$V(0) = 0$</li>
+  <li>$\dot{V}(x) \leq 0$ along trajectories (negative semi-definiteness)</li>
+</ul>
+
+<p>If $\dot{V}(x) &lt; 0$ (strictly negative), we get asymptotic stability.</p>
+
+<h2 id="why-this-matters">Why This Matters</h2>
+
+<p>The power of Lyapunov theory is that:</p>
+<ol>
+  <li><strong>It’s sufficient but not necessary</strong>: Finding a Lyapunov function proves stability, but failing to find one doesn’t prove instability</li>
+  <li><strong>It’s applicable to nonlinear systems</strong>: Unlike linearization, it works directly on the nonlinear dynamics</li>
+  <li><strong>It provides control design tools</strong>: We can design controllers to make V̇ negative</li>
+</ol>
+
+<h2 id="reading-list">Reading List</h2>
+
+<p>I’ve been working through Khalil’s “Nonlinear Systems” Chapter 4, which provides a comprehensive treatment. The examples on mechanical systems and Lur’e systems are particularly illuminating.</p>
+
+<p>Next, I plan to explore how Lyapunov theory extends to:</p>
+<ul>
+  <li>Input-to-state stability (ISS)</li>
+  <li>Control Lyapunov functions</li>
+  <li>Applications in power system stability</li>
+</ul>]]></content><author><name>Parthsarthi</name><email>your.email@university.edu</email></author><category term="control-theory" /><category term="stability" /><category term="lyapunov" /><summary type="html"><![CDATA[Lyapunov stability theory is one of the most elegant and powerful tools in control systems analysis. In this post, I’ll share my understanding of the intuition behind Lyapunov functions and why they’re so fundamental to understanding system stability.]]></summary></entry><entry><title type="html">Voltage Stability in Power Systems: A Control Perspective</title><link href="http://localhost:4000/2024/10/15/power-system-voltage-stability.html" rel="alternate" type="text/html" title="Voltage Stability in Power Systems: A Control Perspective" /><published>2024-10-15T00:00:00+05:30</published><updated>2024-10-15T00:00:00+05:30</updated><id>http://localhost:4000/2024/10/15/power-system-voltage-stability</id><content type="html" xml:base="http://localhost:4000/2024/10/15/power-system-voltage-stability.html"><![CDATA[<p>Voltage stability has become increasingly important as power systems integrate more renewable energy sources and operate closer to their stability limits. This post explores the connection between control theory and voltage stability analysis.</p>
+
+<h2 id="what-is-voltage-stability">What is Voltage Stability?</h2>
+
+<p>Voltage stability refers to a power system’s ability to maintain steady voltages at all buses after a disturbance. Voltage instability occurs when the system cannot meet reactive power demand, leading to progressive voltage decline and potentially collapse.</p>
+
+<h2 id="the-saddle-node-bifurcation">The Saddle-Node Bifurcation</h2>
+
+<p>From a dynamical systems perspective, voltage collapse is often associated with a saddle-node bifurcation. As the system loading increases, the equilibrium point approaches a critical point where:</p>
+<ul>
+  <li>The Jacobian matrix becomes singular</li>
+  <li>A real eigenvalue crosses zero</li>
+  <li>The system loses the stable equilibrium</li>
+</ul>
+
+<p>This is fundamentally a loss of controllability of voltage through reactive power injection.</p>
+
+<h2 id="connection-to-control-theory">Connection to Control Theory</h2>
+
+<p>The voltage stability problem can be analyzed using several control theoretic tools:</p>
+
+<h3 id="1-lyapunov-methods">1. Lyapunov Methods</h3>
+<p>Energy functions can characterize the region of attraction around stable operating points. The boundary of this region defines the stability limit.</p>
+
+<h3 id="2-bifurcation-theory">2. Bifurcation Theory</h3>
+<p>Understanding how equilibria appear/disappear as parameters (load) vary gives insight into stability margins.</p>
+
+<h3 id="3-optimal-control">3. Optimal Control</h3>
+<p>We can formulate voltage control as an optimization problem: maximize loadability subject to voltage constraints.</p>
+
+<h2 id="mathematical-formulation">Mathematical Formulation</h2>
+
+<p>Consider the simplified power system equations:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>P_i = V_i Σ V_j (G_ij cos θ_ij + B_ij sin θ_ij)
+Q_i = V_i Σ V_j (G_ij sin θ_ij - B_ij cos θ_ij)
+</code></pre></div></div>
+
+<p>At the stability limit, the power flow Jacobian becomes singular:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>det(J) = 0
+</code></pre></div></div>
+
+<p>This is analogous to losing controllability in a control system.</p>
+
+<h2 id="current-research-directions">Current Research Directions</h2>
+
+<p>I’m particularly interested in:</p>
+<ul>
+  <li>Using Lyapunov methods for online stability assessment</li>
+  <li>Control Lyapunov functions for preventive/corrective control</li>
+  <li>Connection between voltage stability and optimal power flow</li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<p>Currently reading Kundur’s “Power System Stability and Control” - Chapter 11 provides excellent coverage of voltage stability fundamentals. The treatment of the P-V and Q-V curves is particularly insightful.</p>]]></content><author><name>Parthsarthi</name><email>your.email@university.edu</email></author><category term="power-systems" /><category term="voltage-stability" /><category term="control" /><summary type="html"><![CDATA[Voltage stability has become increasingly important as power systems integrate more renewable energy sources and operate closer to their stability limits. This post explores the connection between control theory and voltage stability analysis.]]></summary></entry><entry><title type="html">A Primer on Optimal Control Theory</title><link href="http://localhost:4000/2024/09/28/optimal-control-primer.html" rel="alternate" type="text/html" title="A Primer on Optimal Control Theory" /><published>2024-09-28T00:00:00+05:30</published><updated>2024-09-28T00:00:00+05:30</updated><id>http://localhost:4000/2024/09/28/optimal-control-primer</id><content type="html" xml:base="http://localhost:4000/2024/09/28/optimal-control-primer.html"><![CDATA[<p>Optimal control is about finding control inputs that minimize (or maximize) some performance criterion. This post summarizes key concepts I’ve learned while studying Kirk’s “Optimal Control Theory.”</p>
+
+<h2 id="the-problem-formulation">The Problem Formulation</h2>
+
+<p>Given a dynamical system:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ẋ = f(x, u, t)
+</code></pre></div></div>
+
+<p>We want to find u(t) that minimizes:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>J = Φ(x(t_f), t_f) + ∫[t_0 to t_f] L(x, u, t) dt
+</code></pre></div></div>
+
+<p>Where:</p>
+<ul>
+  <li>Φ is the terminal cost</li>
+  <li>L is the running cost (Lagrangian)</li>
+</ul>
+
+<h2 id="three-main-approaches">Three Main Approaches</h2>
+
+<h3 id="1-calculus-of-variations">1. Calculus of Variations</h3>
+<p>The classical approach, dating back to Euler and Lagrange. We derive the Euler-Lagrange equations and solve the resulting boundary value problem.</p>
+
+<p><strong>Insight</strong>: This extends to infinite-dimensional function spaces the idea of finding extrema by setting derivatives to zero.</p>
+
+<h3 id="2-pontryagins-maximum-principle">2. Pontryagin’s Maximum Principle</h3>
+<p>Introduces the Hamiltonian:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>H = L(x, u, t) + λᵀf(x, u, t)
+</code></pre></div></div>
+
+<p>The optimal control satisfies:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>u* = arg min H(x, u, λ, t)
+</code></pre></div></div>
+
+<p><strong>Key advantage</strong>: Can handle control constraints naturally.</p>
+
+<h3 id="3-dynamic-programming">3. Dynamic Programming</h3>
+<p>Bellman’s approach based on the principle of optimality. Leads to the Hamilton-Jacobi-Bellman equation:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-∂V/∂t = min_u [L(x,u,t) + (∂V/∂x)ᵀf(x,u,t)]
+</code></pre></div></div>
+
+<p><strong>Power</strong>: Provides the optimal control as a function of state (feedback control).</p>
+
+<h2 id="the-lqr-problem">The LQR Problem</h2>
+
+<p>The Linear Quadratic Regulator is the most tractable optimal control problem:</p>
+
+<p><strong>System</strong>: ẋ = Ax + Bu<br />
+<strong>Cost</strong>: J = ∫[0 to ∞] (xᵀQx + uᵀRu) dt</p>
+
+<p>The solution is the linear feedback:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>u* = -Kx where K = R⁻¹BᵀP
+</code></pre></div></div>
+
+<p>And P satisfies the algebraic Riccati equation:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AᵀP + PA - PBR⁻¹BᵀP + Q = 0
+</code></pre></div></div>
+
+<p><strong>Why it matters</strong>: LQR provides guaranteed stability margins and is the foundation for many modern control techniques.</p>
+
+<h2 id="applications-to-power-systems">Applications to Power Systems</h2>
+
+<p>Optimal control appears in power systems in several contexts:</p>
+<ul>
+  <li>Automatic Generation Control (AGC): Minimize frequency deviation</li>
+  <li>Economic Dispatch: Minimize generation cost</li>
+  <li>Optimal Power Flow: Minimize losses subject to constraints</li>
+</ul>
+
+<p>I’m particularly interested in how Model Predictive Control (MPC) uses optimal control in a receding horizon fashion.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Planning to dive deeper into:</p>
+<ul>
+  <li>Stochastic optimal control (for uncertainty)</li>
+  <li>Differential games (for multi-agent systems)</li>
+  <li>Connection to reinforcement learning</li>
+</ul>]]></content><author><name>Parthsarthi</name><email>your.email@university.edu</email></author><category term="optimal-control" /><category term="optimization" /><category term="control-theory" /><summary type="html"><![CDATA[Optimal control is about finding control inputs that minimize (or maximize) some performance criterion. This post summarizes key concepts I’ve learned while studying Kirk’s “Optimal Control Theory.”]]></summary></entry></feed>

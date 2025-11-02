@@ -1,0 +1,37 @@
+title: Your Name | Theoretical Research
+description: Exploring control systems and power systems theory
+url: "https://parth-goyanka.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Pagination
+paginate: 6
+paginate_path: "/blog/page:num/"
+
+# Author information
+author:
+  name: Parthsarthi
+  email: nnparthsarthi_b23@el.vjti.ac.in
+  github: Parth-Goyanka
+  linkedin: yourprofile
+  scholar: yourscholarid
+
+# Collections
+collections:
+  papers:
+    output: true
+    permalink: /papers/:path/
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

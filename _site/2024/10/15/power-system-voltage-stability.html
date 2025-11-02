@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltage Stability in Power Systems: A Control Perspective | Your Name | Theoretical Research</title>
+    <meta name="description" content="Exploring control systems and power systems theory">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Voltage Stability in Power Systems: A Control Perspective | Your Name Theoretical Research</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Voltage Stability in Power Systems: A Control Perspective" />
+<meta name="author" content="Parthsarthi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Voltage stability has become increasingly important as power systems integrate more renewable energy sources and operate closer to their stability limits. This post explores the connection between control theory and voltage stability analysis." />
+<meta property="og:description" content="Voltage stability has become increasingly important as power systems integrate more renewable energy sources and operate closer to their stability limits. This post explores the connection between control theory and voltage stability analysis." />
+<link rel="canonical" href="http://localhost:4000/2024/10/15/power-system-voltage-stability.html" />
+<meta property="og:url" content="http://localhost:4000/2024/10/15/power-system-voltage-stability.html" />
+<meta property="og:site_name" content="Your Name Theoretical Research" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-10-15T00:00:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Voltage Stability in Power Systems: A Control Perspective" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parthsarthi"},"dateModified":"2024-10-15T00:00:00+05:30","datePublished":"2024-10-15T00:00:00+05:30","description":"Voltage stability has become increasingly important as power systems integrate more renewable energy sources and operate closer to their stability limits. This post explores the connection between control theory and voltage stability analysis.","headline":"Voltage Stability in Power Systems: A Control Perspective","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/10/15/power-system-voltage-stability.html"},"url":"http://localhost:4000/2024/10/15/power-system-voltage-stability.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- MathJax Configuration -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      }
+    };
+    </script>
+
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Parthsarthi</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+                <a href="/reading">Reading</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+    <header class="post-header">
+        <h1>Voltage Stability in Power Systems: A Control Perspective</h1>
+        <div class="post-meta">
+            <span class="date">October 15, 2024</span>
+            
+            <div class="tags">
+                
+                <span class="tag">power-systems</span>
+                
+                <span class="tag">voltage-stability</span>
+                
+                <span class="tag">control</span>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <p>Voltage stability has become increasingly important as power systems integrate more renewable energy sources and operate closer to their stability limits. This post explores the connection between control theory and voltage stability analysis.</p>
+
+<h2 id="what-is-voltage-stability">What is Voltage Stability?</h2>
+
+<p>Voltage stability refers to a power system’s ability to maintain steady voltages at all buses after a disturbance. Voltage instability occurs when the system cannot meet reactive power demand, leading to progressive voltage decline and potentially collapse.</p>
+
+<h2 id="the-saddle-node-bifurcation">The Saddle-Node Bifurcation</h2>
+
+<p>From a dynamical systems perspective, voltage collapse is often associated with a saddle-node bifurcation. As the system loading increases, the equilibrium point approaches a critical point where:</p>
+<ul>
+  <li>The Jacobian matrix becomes singular</li>
+  <li>A real eigenvalue crosses zero</li>
+  <li>The system loses the stable equilibrium</li>
+</ul>
+
+<p>This is fundamentally a loss of controllability of voltage through reactive power injection.</p>
+
+<h2 id="connection-to-control-theory">Connection to Control Theory</h2>
+
+<p>The voltage stability problem can be analyzed using several control theoretic tools:</p>
+
+<h3 id="1-lyapunov-methods">1. Lyapunov Methods</h3>
+<p>Energy functions can characterize the region of attraction around stable operating points. The boundary of this region defines the stability limit.</p>
+
+<h3 id="2-bifurcation-theory">2. Bifurcation Theory</h3>
+<p>Understanding how equilibria appear/disappear as parameters (load) vary gives insight into stability margins.</p>
+
+<h3 id="3-optimal-control">3. Optimal Control</h3>
+<p>We can formulate voltage control as an optimization problem: maximize loadability subject to voltage constraints.</p>
+
+<h2 id="mathematical-formulation">Mathematical Formulation</h2>
+
+<p>Consider the simplified power system equations:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>P_i = V_i Σ V_j (G_ij cos θ_ij + B_ij sin θ_ij)
+Q_i = V_i Σ V_j (G_ij sin θ_ij - B_ij cos θ_ij)
+</code></pre></div></div>
+
+<p>At the stability limit, the power flow Jacobian becomes singular:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>det(J) = 0
+</code></pre></div></div>
+
+<p>This is analogous to losing controllability in a control system.</p>
+
+<h2 id="current-research-directions">Current Research Directions</h2>
+
+<p>I’m particularly interested in:</p>
+<ul>
+  <li>Using Lyapunov methods for online stability assessment</li>
+  <li>Control Lyapunov functions for preventive/corrective control</li>
+  <li>Connection between voltage stability and optimal power flow</li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<p>Currently reading Kundur’s “Power System Stability and Control” - Chapter 11 provides excellent coverage of voltage stability fundamentals. The treatment of the P-V and Q-V curves is particularly insightful.</p>
+
+
+    </div>
+    
+    <div class="post-nav">
+        
+        <a href="/2024/09/28/optimal-control-primer.html" class="nav-link prev">← A Primer on Optimal Control Theory</a>
+        
+        
+        
+        <a href="/2024/11/01/lyapunov-stability-intuition.html" class="nav-link next">Understanding Lyapunov Stability: An Intuitive Approach →</a>
+        
+    </div>
+</article>
+
+
+    <footer class="footer">
+        <p>&copy; 2025 Parthsarthi. Built with Jekyll.</p>
+    </footer>
+</body>
+</html>
+

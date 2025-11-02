@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Primer on Optimal Control Theory | Your Name | Theoretical Research</title>
+    <meta name="description" content="Exploring control systems and power systems theory">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>A Primer on Optimal Control Theory | Your Name Theoretical Research</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="A Primer on Optimal Control Theory" />
+<meta name="author" content="Parthsarthi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Optimal control is about finding control inputs that minimize (or maximize) some performance criterion. This post summarizes key concepts I’ve learned while studying Kirk’s “Optimal Control Theory.”" />
+<meta property="og:description" content="Optimal control is about finding control inputs that minimize (or maximize) some performance criterion. This post summarizes key concepts I’ve learned while studying Kirk’s “Optimal Control Theory.”" />
+<link rel="canonical" href="http://localhost:4000/2024/09/28/optimal-control-primer.html" />
+<meta property="og:url" content="http://localhost:4000/2024/09/28/optimal-control-primer.html" />
+<meta property="og:site_name" content="Your Name Theoretical Research" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-09-28T00:00:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="A Primer on Optimal Control Theory" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Parthsarthi"},"dateModified":"2024-09-28T00:00:00+05:30","datePublished":"2024-09-28T00:00:00+05:30","description":"Optimal control is about finding control inputs that minimize (or maximize) some performance criterion. This post summarizes key concepts I’ve learned while studying Kirk’s “Optimal Control Theory.”","headline":"A Primer on Optimal Control Theory","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/09/28/optimal-control-primer.html"},"url":"http://localhost:4000/2024/09/28/optimal-control-primer.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- MathJax Configuration -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      }
+    };
+    </script>
+
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Parthsarthi</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+                <a href="/reading">Reading</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+    <header class="post-header">
+        <h1>A Primer on Optimal Control Theory</h1>
+        <div class="post-meta">
+            <span class="date">September 28, 2024</span>
+            
+            <div class="tags">
+                
+                <span class="tag">optimal-control</span>
+                
+                <span class="tag">optimization</span>
+                
+                <span class="tag">control-theory</span>
+                
+            </div>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <p>Optimal control is about finding control inputs that minimize (or maximize) some performance criterion. This post summarizes key concepts I’ve learned while studying Kirk’s “Optimal Control Theory.”</p>
+
+<h2 id="the-problem-formulation">The Problem Formulation</h2>
+
+<p>Given a dynamical system:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ẋ = f(x, u, t)
+</code></pre></div></div>
+
+<p>We want to find u(t) that minimizes:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>J = Φ(x(t_f), t_f) + ∫[t_0 to t_f] L(x, u, t) dt
+</code></pre></div></div>
+
+<p>Where:</p>
+<ul>
+  <li>Φ is the terminal cost</li>
+  <li>L is the running cost (Lagrangian)</li>
+</ul>
+
+<h2 id="three-main-approaches">Three Main Approaches</h2>
+
+<h3 id="1-calculus-of-variations">1. Calculus of Variations</h3>
+<p>The classical approach, dating back to Euler and Lagrange. We derive the Euler-Lagrange equations and solve the resulting boundary value problem.</p>
+
+<p><strong>Insight</strong>: This extends to infinite-dimensional function spaces the idea of finding extrema by setting derivatives to zero.</p>
+
+<h3 id="2-pontryagins-maximum-principle">2. Pontryagin’s Maximum Principle</h3>
+<p>Introduces the Hamiltonian:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>H = L(x, u, t) + λᵀf(x, u, t)
+</code></pre></div></div>
+
+<p>The optimal control satisfies:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>u* = arg min H(x, u, λ, t)
+</code></pre></div></div>
+
+<p><strong>Key advantage</strong>: Can handle control constraints naturally.</p>
+
+<h3 id="3-dynamic-programming">3. Dynamic Programming</h3>
+<p>Bellman’s approach based on the principle of optimality. Leads to the Hamilton-Jacobi-Bellman equation:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-∂V/∂t = min_u [L(x,u,t) + (∂V/∂x)ᵀf(x,u,t)]
+</code></pre></div></div>
+
+<p><strong>Power</strong>: Provides the optimal control as a function of state (feedback control).</p>
+
+<h2 id="the-lqr-problem">The LQR Problem</h2>
+
+<p>The Linear Quadratic Regulator is the most tractable optimal control problem:</p>
+
+<p><strong>System</strong>: ẋ = Ax + Bu<br />
+<strong>Cost</strong>: J = ∫[0 to ∞] (xᵀQx + uᵀRu) dt</p>
+
+<p>The solution is the linear feedback:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>u* = -Kx where K = R⁻¹BᵀP
+</code></pre></div></div>
+
+<p>And P satisfies the algebraic Riccati equation:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AᵀP + PA - PBR⁻¹BᵀP + Q = 0
+</code></pre></div></div>
+
+<p><strong>Why it matters</strong>: LQR provides guaranteed stability margins and is the foundation for many modern control techniques.</p>
+
+<h2 id="applications-to-power-systems">Applications to Power Systems</h2>
+
+<p>Optimal control appears in power systems in several contexts:</p>
+<ul>
+  <li>Automatic Generation Control (AGC): Minimize frequency deviation</li>
+  <li>Economic Dispatch: Minimize generation cost</li>
+  <li>Optimal Power Flow: Minimize losses subject to constraints</li>
+</ul>
+
+<p>I’m particularly interested in how Model Predictive Control (MPC) uses optimal control in a receding horizon fashion.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Planning to dive deeper into:</p>
+<ul>
+  <li>Stochastic optimal control (for uncertainty)</li>
+  <li>Differential games (for multi-agent systems)</li>
+  <li>Connection to reinforcement learning</li>
+</ul>
+
+    </div>
+    
+    <div class="post-nav">
+        
+        
+        
+        <a href="/2024/10/15/power-system-voltage-stability.html" class="nav-link next">Voltage Stability in Power Systems: A Control Perspective →</a>
+        
+    </div>
+</article>
+
+
+    <footer class="footer">
+        <p>&copy; 2025 Parthsarthi. Built with Jekyll.</p>
+    </footer>
+</body>
+</html>
+
