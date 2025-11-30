@@ -10,18 +10,16 @@ Optimal control is about finding control inputs that minimize (or maximize) some
 ## The Problem Formulation
 
 Given a dynamical system:
-```
-ẋ = f(x, u, t)
-```
 
-We want to find u(t) that minimizes:
-```
-J = Φ(x(t_f), t_f) + ∫[t_0 to t_f] L(x, u, t) dt
-```
+$$ \dot{x} = f(x, u, t) $$
+
+We want to find $u(t)$ that minimizes:
+
+$$ J = \Phi(x(t_f), t_f) + \int_{t_0}^{t_f} L(x, u, t) dt $$
 
 Where:
-- Φ is the terminal cost
-- L is the running cost (Lagrangian)
+- $\Phi$ is the terminal cost
+- $L$ is the running cost (Lagrangian)
 
 ## Three Main Approaches
 
@@ -32,22 +30,19 @@ The classical approach, dating back to Euler and Lagrange. We derive the Euler-L
 
 ### 2. Pontryagin's Maximum Principle
 Introduces the Hamiltonian:
-```
-H = L(x, u, t) + λᵀf(x, u, t)
-```
+
+$$ H = L(x, u, t) + \lambda^T f(x, u, t) $$
 
 The optimal control satisfies:
-```
-u* = arg min H(x, u, λ, t)
-```
+
+$$ u^* = \arg \min H(x, u, \lambda, t) $$
 
 **Key advantage**: Can handle control constraints naturally.
 
 ### 3. Dynamic Programming
 Bellman's approach based on the principle of optimality. Leads to the Hamilton-Jacobi-Bellman equation:
-```
--∂V/∂t = min_u [L(x,u,t) + (∂V/∂x)ᵀf(x,u,t)]
-```
+
+$$ -\frac{\partial V}{\partial t} = \min_u \left[ L(x,u,t) + \left(\frac{\partial V}{\partial x}\right)^T f(x,u,t) \right] $$
 
 **Power**: Provides the optimal control as a function of state (feedback control).
 
@@ -55,18 +50,16 @@ Bellman's approach based on the principle of optimality. Leads to the Hamilton-J
 
 The Linear Quadratic Regulator is the most tractable optimal control problem:
 
-**System**: ẋ = Ax + Bu  
-**Cost**: J = ∫[0 to ∞] (xᵀQx + uᵀRu) dt
+**System**: $\dot{x} = Ax + Bu$  
+**Cost**: $J = \int_{0}^{\infty} (x^T Qx + u^T Ru) dt$
 
 The solution is the linear feedback:
-```
-u* = -Kx where K = R⁻¹BᵀP
-```
 
-And P satisfies the algebraic Riccati equation:
-```
-AᵀP + PA - PBR⁻¹BᵀP + Q = 0
-```
+$$ u^* = -Kx \quad \text{where} \quad K = R^{-1}B^T P $$
+
+And $P$ satisfies the algebraic Riccati equation:
+
+$$ A^T P + PA - PBR^{-1}B^T P + Q = 0 $$
 
 **Why it matters**: LQR provides guaranteed stability margins and is the foundation for many modern control techniques.
 

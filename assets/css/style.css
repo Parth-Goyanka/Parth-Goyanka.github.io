@@ -485,6 +485,99 @@ a {
     transform: translateX(5px);
 }
 
+/* Blog Post Layout */
+.post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.post-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.post-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.post-content h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.post-content h3 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.post-content ul,
+.post-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.post-content code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+    color: var(--accent-primary);
+}
+
+.post-content pre {
+    background: rgba(15, 23, 42, 0.6);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    overflow-x: auto;
+    margin-bottom: 2rem;
+}
+
+.post-content pre code {
+    background: transparent;
+    padding: 0;
+    color: var(--text-secondary);
+}
+
+.post-nav {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link {
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
 /* Papers List */
 .papers-list {
     display: flex;
