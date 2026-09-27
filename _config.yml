@@ -1,5 +1,5 @@
-title: Your Name | Theoretical Research
-description: Exploring control systems and power systems theory
+title: Parthsarthi Goyanka
+description: Control, optimization, and geometric methods for multi-time-scale systems
 url: "https://parth-goyanka.github.io"
 baseurl: ""
 
@@ -20,8 +20,10 @@ author:
   name: Parthsarthi
   email: nnparthsarthi_b23@el.vjti.ac.in
   github: Parth-Goyanka
-  linkedin: yourprofile
-  scholar: yourscholarid
+  # TODO(Parth): provide full LinkedIn and Google Scholar URLs, then uncomment.
+  # The links in index.md only render when these are set.
+  # linkedin: https://www.linkedin.com/in/...
+  # scholar: https://scholar.google.com/citations?user=...
 
 # Collections
 collections:

@@ -78,38 +78,6 @@ title: Home
   </div>
 </section>
 
-<section class="section">
-  <div class="section-header">
-    <h2>Publications</h2>
-    <p>Selected works and contributions.</p>
-  </div>
-  <div class="papers-list">
-    {% for paper in site.papers %}
-    <div class="paper-item glass-card">
-      <div class="paper-content">
-        <h3>{{ paper.title }}</h3>
-        <p class="paper-authors">{{ paper.authors }}</p>
-        <div class="paper-meta-row">
-            <span class="paper-venue"><i class="fas fa-landmark"></i> {{ paper.venue }}, {{ paper.year }}</span>
-        </div>
-        <p class="paper-description">{{ paper.description }}</p>
-      </div>
-      <div class="paper-links">
-        {% if paper.pdf %}
-        <a href="{{ paper.pdf }}" class="icon-link" title="PDF"><i class="far fa-file-pdf"></i></a>
-        {% endif %}
-        {% if paper.arxiv %}
-        <a href="{{ paper.arxiv }}" class="icon-link" title="arXiv"><i class="fas fa-archive"></i></a>
-        {% endif %}
-        {% if paper.doi %}
-        <a href="{{ paper.doi }}" class="icon-link" title="DOI"><i class="fas fa-link"></i></a>
-        {% endif %}
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</section>
-
 <section class="section alt-bg">
   <div class="section-header">
     <h2>Currently Reading</h2>
@@ -153,14 +121,19 @@ title: Home
         <i class="fab fa-github"></i>
         <span>GitHub</span>
       </a>
-      <a href="https://linkedin.com/in/{{ site.author.linkedin }}" class="contact-link" target="_blank">
+      {% comment %}TODO(Parth): LinkedIn and Scholar links appear once their URLs are set in _config.yml.{% endcomment %}
+      {% if site.author.linkedin %}
+      <a href="{{ site.author.linkedin }}" class="contact-link" target="_blank">
         <i class="fab fa-linkedin"></i>
         <span>LinkedIn</span>
       </a>
-      <a href="https://scholar.google.com/citations?user={{ site.author.scholar }}" class="contact-link" target="_blank">
+      {% endif %}
+      {% if site.author.scholar %}
+      <a href="{{ site.author.scholar }}" class="contact-link" target="_blank">
         <i class="fas fa-graduation-cap"></i>
         <span>Google Scholar</span>
       </a>
+      {% endif %}
     </div>
   </div>
 </section>
